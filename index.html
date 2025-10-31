@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dhawlath Beevi — Portfolio</title>
+  <meta name="description" content="Dhawlath Beevi — Python developer & AWS enthusiast. Portfolio showcasing projects, skills and contact." />
+
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.04);
+      --fw-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--fw-sans);background:linear-gradient(180deg,#081026 0%, #071022 100%);color:#e6eef6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* NAV */
+    header{backdrop-filter:blur(6px);position:sticky;top:12px;margin:12px 0;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 6px 20px rgba(3,7,18,0.6)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #6ee7b7;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+    .cta{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#10b981,#06b6d4);color:#012; font-weight:600}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .intro h1{font-size:34px;margin:0 0 8px}
+    .intro p{color:var(--muted);line-height:1.6;margin:0 0 16px}
+    .links{display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);display:inline-flex;gap:10px;align-items:center}
+    .typed{color:var(--accent);font-weight:700}
+
+    /* CARD */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .profile-card{display:flex;flex-direction:column;gap:12px}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* SKILLS */
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill{display:flex;flex-direction:column;gap:6px}
+    .bar{height:10px;background:rgba(255,255,255,0.04);border-radius:12px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,#06b6d4,#06b6d4);width:60%}
+
+    /* PROJECTS */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .project h4{margin:0 0 8px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+
+    /* FOOTER & CONTACT */
+    form{display:grid;gap:8px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+    button.primary{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#10b981,#0ea5a9);border:none;color:#012;font-weight:600}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .projects{grid-template-columns:1fr}
+      header{position:relative}
+      nav ul{display:none}
+    }
+
+    /* small helpers & reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="avatar">
+  <img src="assets/myphoto.jpg" alt="Dhawlath Beevi" />
+</div>
+          <div>
+            <div style="font-weight:700">Dhawlath Beevi S A</div>
+            <div class="small">Computer Science Graduate • Python & AWS</div>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="cta" id="downloadResume" href="assets/Dhawlath Beevi resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro">
+          <h1 class="reveal">Hi — I’m Dhawlath Beevi</h1>
+          <p class="muted reveal">I’m a Computer Science graduate passionate about building cloud-first web solutions with <span class="typed"></span></p>
+          <p class="muted reveal">I enjoy vibe coding — blending creativity and technology to build efficient, modern solutions. Seeking an entry-level role to apply cloud and programming expertise.</p>
+
+          <div class="links reveal" style="margin-top:12px">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn" href="https://github.com/DhawlathBeevi" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/dhawlath-beevi/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="card profile-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Dhawlath Beevi S A</div>
+              <div class="small">Koothanallur, Tamil Nadu</div>
+            </div>
+            <div class="small">+91 63790 94715</div>
+          </div>
+
+          <div class="small" style="margin-top:6px">Email: <a href="mailto:dhawlathbeevi1976@gmail.com">dhawlathbeevi1976@gmail.com</a></div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:10px 0">
+
+          <div>
+            <div class="small">Technical Skills</div>
+            <div class="skills-grid" style="margin-top:8px">
+              <div class="skill">
+                <div class="small">Python</div>
+                <div class="bar"><i style="width:80%"></i></div>
+              </div>
+              <div class="skill">
+                <div class="small">HTML & CSS</div>
+                <div class="bar"><i style="width:85%"></i></div>
+              </div>
+              <div class="skill">
+                <div class="small">AWS (EC2, S3, RDS)</div>
+                <div class="bar"><i style="width:70%"></i></div>
+              </div>
+              <div class="skill">
+                <div class="small">Git & Tools</div>
+                <div class="bar"><i style="width:65%"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <a class="btn" href="https://www.credly.com/users/dhawlath-beevi" target="_blank">Certifications</a>
+            <a class="btn" href="https://github.com/DhawlathBeevi" target="_blank">View Code</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" style="margin-top:26px">
+        <div class="card reveal">
+          <h3>About Me</h3>
+          <p class="muted">I am a Computer Science graduate (2021–2024) from STET Women’s College, Mannarkudi. I enjoy building Python-based tools and designing cloud architectures on AWS. I’ve completed projects such as a Phone Number Validator (Numverify API + database) and an AWS Cloud Architecture for an E-commerce application. I hold the AWS Certified Cloud Practitioner certification and the AWS re/Start badge.</p>
+        </div>
+      </section>
+
+      <section id="skills" style="margin-top:20px">
+        <h3>Skills</h3>
+        <div class="card reveal">
+          <div style="display:flex;gap:18px;flex-wrap:wrap">
+            <div style="min-width:220px">
+              <div style="font-weight:700">Cloud & Tools</div>
+              <div class="muted" style="margin-top:8px">AWS (EC2, S3, RDS, IAM, Route53, CloudWatch), XAMPP, GitHub, Pycharm, vscode</div>
+            </div>
+
+            <div style="min-width:220px">
+              <div style="font-weight:700">Languages</div>
+              <div class="muted" style="margin-top:8px">Python, HTML, CSS</div>
+            </div>
+
+            <div style="min-width:220px">
+              <div style="font-weight:700">Soft Skills</div>
+              <div class="muted" style="margin-top:8px">Problem Solving, Communication, Teamwork, Time Management</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" style="margin-top:20px">
+        <h3>Projects</h3>
+        <div class="projects reveal">
+
+          <div class="project">
+            <h4>Phone Number Validator</h4>
+            <p class="muted">A Python application that validates phone numbers using the Numverify API, implements validation logic, and stores results in a database. Built to demonstrate API integration, data handling, and reliable validation flows.</p>
+            <div class="tags" style="margin-top:8px">
+              <span class="tag">Python</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">Database</span>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openInNew('https://github.com/DhawlathBeevi')">View Code</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h4>AWS Cloud Architecture — E-commerce</h4>
+            <p class="muted">Designed a three-tier AWS architecture for an e-commerce web app using EC2, RDS, S3, CloudFront, Route53, IAM and CloudWatch, focusing on scalability, security, and cost optimization.</p>
+            <div class="tags" style="margin-top:8px">
+              <span class="tag">AWS</span>
+              <span class="tag">Architecture</span>
+              <span class="tag">Design</span>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openInNew('https://www.linkedin.com/in/dhawlath-beevi/')">View Write-up</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="education" style="margin-top:20px">
+        <h3>Education</h3>
+        <div class="card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">B.Sc. Computer Science</div>
+              <div class="muted">STET Women’s College, Mannarkudi — 2021–2024</div>
+            </div>
+            <div class="muted">8.00 / 10.00</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications" style="margin-top:20px">
+        <h3>Certifications</h3>
+        <div class="card reveal" style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="min-width:220px">
+            <div style="font-weight:700">AWS Certified Cloud Practitioner</div>
+            <div class="muted">Validates cloud fluency and foundational AWS knowledge.</div>
+            <div style="margin-top:8px"><a href="https://www.credly.com/badges/18209767-8a91-40df-b5fd-891d23837d57/public_url" target="_blank">View Badge</a></div>
+          </div>
+
+          <div style="min-width:220px">
+            <div style="font-weight:700">AWS re/Start Graduate</div>
+            <div class="muted">Completed AWS re/Start program to build cloud and professional skills.</div>
+            <div style="margin-top:8px"><a href="https://www.credly.com/users/dhawlath-beevi" target="_blank">View Badges</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:20px">
+        <h3>Contact</h3>
+        <div class="card reveal" style="display:grid;grid-template-columns:1fr 360px;gap:16px">
+          <div>
+            <p class="muted">If you have an opportunity, collaboration idea, or just want to say hi — send a message. I'll get back to you.</p>
+            <form id="whatsappForm">
+  <input type="text" id="name" placeholder="Your name" required>
+  <input type="email" id="email" placeholder="Your email" required>
+  <textarea id="message" rows="5" placeholder="Message" required></textarea>
+  <div style="margin-top:8px">
+    <button class="primary" type="submit">Send on WhatsApp</button>
+  </div>
+</form>
+
+<script>
+  document.getElementById("whatsappForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("message").value.trim();
+
+    const text = `Hello Dhawlath! 👋%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${msg}`;
+    const url = `https://wa.me/916379094715?text=${text}`;
+    window.open(url, "_blank");
+  });
+</script>
+
+          </div>
+
+          <aside>
+            <div style="font-weight:700">Connect</div>
+            <div class="muted" style="margin-top:8px">Email: <a href="mailto:dhawlathbeevi1976@gmail.com">dhawlathbeevi1976@gmail.com</a></div>
+            <div class="muted" style="margin-top:6px">Phone: +91 63790 94715</div>
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <a class="btn" href="https://github.com/DhawlathBeevi" target="_blank">GitHub</a>
+              <a class="btn" href="https://www.linkedin.com/in/dhawlath-beevi/" target="_blank">LinkedIn</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer style="margin-top:26px;text-align:center;opacity:0.9;color:var(--muted)">
+        <small>© "Dhawlath Beevi" — Built with HTML, CSS & JavaScript • Hosted on GitHub Pages</small>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Utility to open links in new tab
+    function openInNew(url){ window.open(url,'_blank','noopener'); }
+
+    // Typing effect
+    const typedEl = document.querySelector('.typed');
+    const phrases = ['Python Developer', 'AWS Cloud Enthusiast', 'Entry-level Software Engineer'];
+    let i=0,j=0;let current='';let forward=true;
+    function type(){
+      const phrase = phrases[i];
+      if(forward){ current = phrase.slice(0, ++j); }
+      else { current = phrase.slice(0, --j); }
+      typedEl.textContent = current;
+      if(forward && j === phrase.length){ forward=false; setTimeout(type,900); }
+      else if(!forward && j===0){ forward=true; i=(i+1)%phrases.length; setTimeout(type,200); }
+      else setTimeout(type,100);
+    }
+    if(typedEl) type();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    },{threshold:0.18});
+    reveals.forEach(r=>obs.observe(r));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.startsWith('#')){
+          const el = document.querySelector(href);
+          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+        }
+      });
+    });
+
+    // Small accessibility: enable keyboard focus outlines
+    document.addEventListener('keydown', e=>{ if(e.key==='Tab'){ document.body.style.outline='none'; }});
+  </script>
+</body>
+</html>
